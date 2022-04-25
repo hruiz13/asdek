@@ -6,12 +6,15 @@ import { useHeaderStyles } from './headerStyles'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { ProfileMenu } from './ProfileMenu'
+import { useSelector } from 'react-redux'
 
 const menuId = 'primary-search-account-menu'
 
 export const Header = () => {
   const { classes } = useHeaderStyles()
-  const [anchorEl, setAnchorEl] = useState(null)
+  const [anchorEl, setAnchorEl] = useState(false)
+
+  const { items } = useSelector((state) => state.cartReducer)
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget)
@@ -54,7 +57,7 @@ export const Header = () => {
           </div>
           <div>
             <IconButton size='large' aria-label='show 4 new mails' color='inherit'>
-              <Badge badgeContent={4} color='warning'>
+              <Badge badgeContent={items.length} color='warning'>
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>

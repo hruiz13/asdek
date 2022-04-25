@@ -1,5 +1,6 @@
-import { Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import React from 'react'
+import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { useMainLayoutStyles } from './mainLayoutStyles'
 
@@ -8,7 +9,10 @@ export const MainLayout = ({ children }) => {
   return (
     <Grid container direction='column' className={classes.mainContainer}>
       <Header />
-      <div>{children}</div>
+      <Box>
+        {children}
+      </Box>
+      <Footer />
     </Grid>
   )
 }

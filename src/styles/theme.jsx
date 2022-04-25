@@ -31,6 +31,12 @@ export const theme = createTheme({
       light: '#D71D2D',
       dark: '#6C0F16'
     }
+  },
+  typography: {
+    title: {
+      borderBottom: 'solid 4px #D71D2D',
+      width: 'fit-content'
+    }
   }
 
 })
